@@ -118,14 +118,13 @@ fn rectify(eval: &[bool], data: &[Vec<u32>]) -> u32 {
     data.iter()
         .enumerate()
         .map(|(glob_i, ln)| -> bool {
-            match eval[glob_i] {
-                true => return true,
-                false => {
-                    for (i, _) in ln.iter().enumerate() {
-                        if let Some(true) = try_rectify(ln, i) {
-                            return true;
-                        }
-                    }
+            if eval[glob_i] {
+                return true;
+            }
+
+            for (i, _) in ln.iter().enumerate() {
+                if let Some(true) = try_rectify(ln, i) {
+                    return true;
                 }
             }
             false

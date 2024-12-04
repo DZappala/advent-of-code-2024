@@ -1,3 +1,3 @@
 [workspace]
 resolver = "2"
-members = ["crates/day_1", "crates/day_2"]
+members = ["crates/day_1", "crates/day_2", "crates/day_3"]
